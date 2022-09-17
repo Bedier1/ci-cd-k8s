@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: java-maven-app
-        image: mohamedbedier/cicdapp:$IMAGE_NAME
+        image: mohamedbedier/cicdapp:$IMAGE_VERSION
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
