@@ -42,11 +42,10 @@ pipeline {
         stage('deploy TO Kubernetes') {
             steps {
                 script {
-                    withKubeConfig([credentialsId: 'minikube', serverUrl: 'https://192.168.1.15:8443]) {
-                     
-                          sh 'envsubst < kubernetes/deployment.yaml | kubectl apply -f -'
-                          sh 'envsubst < kubernetes/service.yaml | kubectl apply -f -'
-                    }
+                    withKubeConfig([credentialsId: 'minikube', serverUrl: 'https://192.168.1.15:8443']) {
+                          sh 'envsubst < kubernetes/deployment.yaml | kubectl apply -f - '
+                          sh 'envsubst < kubernetes/service.yaml | kubectl apply -f - '
+                      }
 
                 }
             }
